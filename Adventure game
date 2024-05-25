@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class TextAdventureGame {
+
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Text Adventure Game!");
+        System.out.println("You find yourself in a mysterious house. Can you find your way out?");
+
+        
+        startGame();
+    }
+
+    private static void startGame() {
+        System.out.println("\nYou are in the foyer of the house.");
+        System.out.println("There are doors to the north, south, east, and west.");
+        System.out.println("Which direction do you want to go?");
+
+        
+        String direction = scanner.nextLine().toLowerCase();
+
+        switch (direction) {
+            case "north":
+                System.out.println("\nYou enter the living room.");
+                livingRoom();
+                break;
+            case "south":
+                System.out.println("\nYou enter the kitchen.");
+                kitchen();
+                break;
+            case "east":
+                System.out.println("\nYou enter the dining room.");
+                diningRoom();
+                break;
+            case "west":
+                System.out.println("\nYou enter the bedroom.");
+                bedroom();
+                break;
+            default:
+                System.out.println("\nInvalid direction. Please choose again.");
+                startGame(); 
+                break;
+        }
+    }
+
+    private static void livingRoom() {
+        System.out.println("\nYou are in the living room.");
+        System.out.println("There is a TV, a sofa, and a door to the south.");
+        System.out.println("What do you want to do?");
+        String action = scanner.nextLine().toLowerCase();
+    }
+
+    private static void kitchen() {
+        
+    }
+
+    private static void diningRoom() {
+       
+    }
+
+    private static void bedroom() {
+       
+    }
+}
