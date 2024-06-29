@@ -7,8 +7,6 @@ public class TextAdventureGame {
     public static void main(String[] args) {
         System.out.println("Welcome to the Text Adventure Game!");
         System.out.println("You find yourself in a mysterious house. Can you find your way out?");
-
-        
         startGame();
     }
 
@@ -16,7 +14,6 @@ public class TextAdventureGame {
         System.out.println("\nYou are in the foyer of the house.");
         System.out.println("There are doors to the north, south, east, and west.");
         System.out.println("Which direction do you want to go?");
-
         
         String direction = scanner.nextLine().toLowerCase();
 
@@ -48,18 +45,84 @@ public class TextAdventureGame {
         System.out.println("\nYou are in the living room.");
         System.out.println("There is a TV, a sofa, and a door to the south.");
         System.out.println("What do you want to do?");
+        
         String action = scanner.nextLine().toLowerCase();
+        
+        if (action.contains("south")) {
+            System.out.println("\nYou go back to the foyer.");
+            startGame();
+        } else if (action.contains("watch tv") || action.contains("tv")) {
+            System.out.println("\nYou watch TV for a while. There's nothing interesting on.");
+            livingRoom();
+        } else {
+            System.out.println("\nInvalid action. Please choose again.");
+            livingRoom();
+        }
     }
 
     private static void kitchen() {
+        System.out.println("\nYou are in the kitchen.");
+        System.out.println("There is a fridge, a stove, and a door to the north.");
+        System.out.println("What do you want to do?");
         
+        String action = scanner.nextLine().toLowerCase();
+        
+        if (action.contains("north")) {
+            System.out.println("\nYou go back to the foyer.");
+            startGame();
+        } else if (action.contains("open fridge") || action.contains("fridge")) {
+            System.out.println("\nYou open the fridge and find some food. You eat a snack and feel refreshed.");
+            kitchen();
+        } else if (action.contains("stove")) {
+            System.out.println("\nYou check the stove. It's off, and there's nothing cooking.");
+            kitchen();
+        } else {
+            System.out.println("\nInvalid action. Please choose again.");
+            kitchen();
+        }
     }
 
     private static void diningRoom() {
-       
+        System.out.println("\nYou are in the dining room.");
+        System.out.println("There is a large dining table, some chairs, and a door to the west.");
+        System.out.println("What do you want to do?");
+        
+        String action = scanner.nextLine().toLowerCase();
+        
+        if (action.contains("west")) {
+            System.out.println("\nYou go back to the foyer.");
+            startGame();
+        } else if (action.contains("sit") || action.contains("chair")) {
+            System.out.println("\nYou sit on a chair and rest for a moment.");
+            diningRoom();
+        } else if (action.contains("table")) {
+            System.out.println("\nYou look at the table. It's set for a meal, but no one is here.");
+            diningRoom();
+        } else {
+            System.out.println("\nInvalid action. Please choose again.");
+            diningRoom();
+        }
     }
 
     private static void bedroom() {
-       
+        System.out.println("\nYou are in the bedroom.");
+        System.out.println("There is a bed, a wardrobe, and a door to the east.");
+        System.out.println("What do you want to do?");
+        
+        String action = scanner.nextLine().toLowerCase();
+        
+        if (action.contains("east")) {
+            System.out.println("\nYou go back to the foyer.");
+            startGame();
+        } else if (action.contains("bed")) {
+            System.out.println("\nYou lie on the bed and take a short nap. You feel a bit more rested.");
+            bedroom();
+        } else if (action.contains("wardrobe")) {
+            System.out.println("\nYou open the wardrobe and find some clothes. Nothing special.");
+            bedroom();
+        } else {
+            System.out.println("\nInvalid action. Please choose again.");
+            bedroom();
+        }
     }
 }
